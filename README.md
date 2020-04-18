@@ -17,7 +17,10 @@ module.exports = {
    connectionStr: 'mongodb://username:password@host:port/database',
 
    // 生成 token 的密钥 
-   secret: 'secret'
+   secret: 'secret',
+
+   // 服务器端口号
+   port: xxxx
 }
 ```
 - npm run start

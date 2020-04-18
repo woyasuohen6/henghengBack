@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('fs');
 
 // 自动注册路由的脚本
 module.exports = app => {
