@@ -35,5 +35,29 @@ class Auth {
       if (ctx.id === userId) await next()
       else ctx.throw(402, '没有权限');
    }
+
+   // 超级管理员鉴权
+   async checkadmin(ctx, next) {
+      const token = ctx.cookies.get('token');
+      let decoded;
+      try {
+         decoded = jwt.verify(token, secret);
+      } catch (err) {
+         ctx.body = {
+            errCode: 6,
+            errMessage: '没有权限'
+         }
+         return;
+      }
+      if (!decoded || decoded.name !== 'admin') {
+         ctx.body = {
+            errCode: 6,
+            errMessage: '没有权限'
+         }
+         return;
+      }
+      await next();
+   }
 }
+
 module.exports = new Auth();

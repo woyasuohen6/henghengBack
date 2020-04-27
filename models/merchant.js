@@ -10,7 +10,6 @@ const {
 } = mongoose;
 
 const merchantSchema = new Schema({
-
    // 商家名称
    name: {
       type: String,
@@ -33,16 +32,14 @@ const merchantSchema = new Schema({
    password: {
       type: String,
       required: true,
-      select: true
+      select: false
    },
 
-   // 商家图片列表
-   imgList: {
-      type: [{
-         type: String,
-      }],
+   // 商家封面图片
+   img_url: {
+      type: String,
       required: false
-   },
+   }
 })
 
 module.exports = model('Merchant', merchantSchema);

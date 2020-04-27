@@ -1,9 +1,13 @@
-const path = require('path')
+/**
+ * 上传图片的中间件
+ * 返回图片的相对地址
+ */
+const path = require('path');
 
-// 上传图片的中间件，返回图片的相对地址
-module.exports = (ctx, next) => {
+module.exports = async (ctx, next) => {
+   // console.log(ctx.request.files)
    const file = ctx.request.files.file;
-   const basename = path.basename(file.path);
+   const basename = '/imgs/' + path.basename(file.path);
    ctx.url = basename;
-   next();
+   await next();
 }

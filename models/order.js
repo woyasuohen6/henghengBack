@@ -32,12 +32,12 @@ const orderSchema = new Schema({
 
    // 订单支付时间
    orderTime: {
-      type: String,
+      type: Date,
       default: new Date(),
       required: false,
    },
 
-   // 进度
+   // 种植/养殖进度
    progress: {
       type: Number,
       default: 0,
@@ -61,6 +61,23 @@ const orderSchema = new Schema({
       type: Boolean,
       default: false,
       required: false
+   },
+
+   /**
+    * 订单状态信息
+    */
+   description: {
+      type: String,
+      required: false
+   },
+
+   /**
+    * 订单更新时间
+    */
+   Updatetime: {
+      type: Date,
+      required: false,
+      default: new Date()
    }
 })
 

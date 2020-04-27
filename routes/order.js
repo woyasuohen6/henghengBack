@@ -19,12 +19,12 @@ const router = new Router({
  * 创建订单接口
  * POST /orders/create
  */
-router.post('/create', auth, getId, checkUser, create);
+// router.post('/create', auth, getId, checkUser, create);
 
 /**
  * 查询订单接口
  * GET /orders
  */
-router.get('/', auth, getId, getOrder);
+// router.get('/', auth, getId, getOrder);
 
 module.exports = router;

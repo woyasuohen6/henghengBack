@@ -1,8 +1,10 @@
 const Router = require('koa-router');
 const {
    login,
-   register
-} = require('../controllers/user')
+   register,
+   verify,
+   getHomeData
+} = require('../controllers/user');
 
 const router = new Router({
    prefix: '/users'
@@ -19,5 +21,16 @@ router.post('/login', login);
  * POST /users/register
  */
 router.post('/register', register);
+
+/**
+ * 验证用户是否登录
+ * GET /users/verify
+ */
+router.get('/verify', verify);
+
+/**
+ * 获取首页信息
+ */
+router.get('/getHomeData', getHomeData);
 
 module.exports = router;
