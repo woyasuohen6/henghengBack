@@ -1,4 +1,4 @@
-![](https://github.com/woyasuohen6/henghengBack/blob/master/public/logo.png)  
+![](https://github.com/woyasuohen6/henghengBack/blob/master/public/imgs/logo.png)  
 ## 哼哼养殖后端  
 ### 技术栈
 - koa2
