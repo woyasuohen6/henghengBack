@@ -62,7 +62,9 @@ module.exports = {
 #### errMessage
 表示本次请求的错误信息
 - 'OK': 请求成功
+- 其他错误信息
 #### data
 表示响应的数据
 
 ## 接口文档
+[postman](https://documenter.getpostman.com/view/11406584/SzmiXw5x?version=latest)
