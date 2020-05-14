@@ -2,6 +2,7 @@
  * 商品 model
  */
 const mongoose = require('mongoose');
+const { qiniuConfig } = require('../config');
 
 const {
    Schema,
@@ -72,7 +73,7 @@ const commoditySchema = new Schema({
    img_url: {
       type: String,
       required: false,
-      default: '/logo.png'
+      default: qiniuConfig.PUBLIC_BUCKET_DOMAIN + '/imgs/logo.png'
    },
 
    // 商品介绍图片列表

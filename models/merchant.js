@@ -3,6 +3,7 @@
  */
 
 const mongoose = require('mongoose');
+const { qiniuConfig } = require('../config');
 
 const {
    Schema,
@@ -38,7 +39,8 @@ const merchantSchema = new Schema({
    // 商家封面图片
    img_url: {
       type: String,
-      required: false
+      required: false,
+      default: qiniuConfig.PUBLIC_BUCKET_DOMAIN + '/imgs/logo.png'
    }
 })
 
