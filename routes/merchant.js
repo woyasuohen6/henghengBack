@@ -4,6 +4,7 @@ const {
    getId,
    checkadmin
 } = require('../controllers/utils/auth');
+
 const {
    login,
    register,
@@ -11,11 +12,12 @@ const {
    addImg,
    modify,
    createCommodity,
-   getCommodityList,
-   addCommodityImg
+   addCommodityImg,
+   getMerchantDetail,
+   addCommodityImgList
 } = require('../controllers/merchant');
 
-const upload = require('../controllers/utils/upload');
+const uploadImg = require('../controllers/utils/uploadImg');
 
 const router = new Router({
    prefix: '/merchants'
@@ -40,7 +42,7 @@ router.delete('/deleteAccount', checkadmin, deleteAccount);
 /**
  * 商家上传图片接口
  */
-router.post('/addImg', auth, getId, upload, addImg);
+router.post('/addImg', auth, getId, uploadImg, addImg);
 
 /**
  * 商家修改信息接口
@@ -53,14 +55,18 @@ router.put('/modify', auth, getId, modify);
 router.post('/createCommodity', auth, getId, createCommodity);
 
 /**
- *  获取商品列表接口
+ *  获取商家详细信息接口
  *  不需要登录权限
  */
-router.get('/getCommodityList', getCommodityList);
+router.get('/getMerchantDetail', getMerchantDetail);
 
 /**
  * 上传商品封面图片
  */
-router.post('/addCommodityImg/:commodityId', auth, getId, upload, addCommodityImg);
+router.post('/addCommodityImg/:commodityId', auth, getId, uploadImg, addCommodityImg);
 
+/**
+ * 上传商品图片列表
+ */
+router.post('/addCommodityImgList/:commodityId', auth, getId, uploadImg, addCommodityImgList);
 module.exports = router;

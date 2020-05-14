@@ -19,10 +19,9 @@ const app = new Koa();
 
 // 连接数据库
 const {
-   connectionStr,
-   port
-} = require('./config')
-mongoose.connect(connectionStr, {
+   serverConfig
+} = require('./config');
+mongoose.connect(serverConfig.MONGODB_CONNECT_STR, {
    useNewUrlParser: true,
    useUnifiedTopology: true,
    useFindAndModify: false
@@ -82,4 +81,4 @@ app.use(ctx => {
    }
 })
 
-app.listen(port, () => console.log('server is listening ' + port));
+app.listen(serverConfig.PORT, () => console.log('server is listening ' + serverConfig.PORT));

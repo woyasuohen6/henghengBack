@@ -4,8 +4,10 @@ const deleteAccount = require('./controllers/deleteAccount');
 const addImg = require('./controllers/addImg');
 const modify = require('./controllers/modify');
 const createCommodity = require('./controllers/createCommodity');
-const getCommodityList = require('./controllers/getCommodityList');
 const addCommodityImg = require('./controllers/addCommodityImg');
+const getMerchantDetail = require('./controllers/getMerchantDetail');
+const addCommodityImgList = require('./controllers/addCommodityImgList');
+
 
 
 module.exports = {
@@ -15,6 +17,7 @@ module.exports = {
    addImg,
    modify,
    createCommodity,
-   getCommodityList,
-   addCommodityImg
+   addCommodityImg,
+   getMerchantDetail,
+   addCommodityImgList
 };

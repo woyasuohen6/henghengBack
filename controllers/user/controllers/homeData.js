@@ -1,14 +1,10 @@
 const Merchant = require('../../../models/merchant');
 const Commodity = require('../../../models/commodity');
-const {
-   splicingUrl,
-   splicingUrlList
-} = require('../../utils/url');
+
 
 async function getHomeData(ctx, next) {
    let brandList = await Merchant.find();
    let newGoodsList = await Commodity.find();
-   splicingUrlList(ctx, brandList, newGoodsList);
    ctx.status = 200;
    const channel = [{
       "id": 1,

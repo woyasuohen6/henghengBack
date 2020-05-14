@@ -4,7 +4,7 @@
 const User = require('../../../models/user');
 const jsonwebtoken = require('jsonwebtoken');
 const {
-   secret
+   serverConfig
 } = require('../../../config');
 
 async function login(ctx, next) {
@@ -31,7 +31,7 @@ async function login(ctx, next) {
       const token = jsonwebtoken.sign({
          _id,
          name
-      }, secret, {
+      }, serverConfig.SECRET, {
          expiresIn: '1d'
       });
 

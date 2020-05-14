@@ -1,7 +1,7 @@
 const Merchant = require('../../../models/merchant');
 const jsonwebtoken = require('jsonwebtoken');
 const {
-   secret
+   serverConfig
 } = require('../../../config');
 
 // 商家登录接口
@@ -30,7 +30,7 @@ async function login(ctx, next) {
       const token = jsonwebtoken.sign({
          _id,
          name
-      }, secret, {
+      }, serverConfig.SECRET, {
          expiresIn: '1d'
       });
 

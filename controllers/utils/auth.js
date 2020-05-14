@@ -2,19 +2,19 @@ const koa_jwt = require('koa-jwt');
 const jwt = require('jsonwebtoken');
 
 const {
-   secret
+   serverConfig
 } = require('../../config');
 
 class Auth {
    auth = koa_jwt({
-      secret,
+      secret: serverConfig.SECRET,
       cookie: 'token'
    });
 
    // 获取请求 Cookie 中的 id
    async getId(ctx, next) {
       const token = ctx.cookies.get('token');
-      const decoded = jwt.verify(token, secret);
+      const decoded = jwt.verify(token, serverConfig.SECRET);
       ctx.id = decoded._id;
       await next();
    }
@@ -41,7 +41,7 @@ class Auth {
       const token = ctx.cookies.get('token');
       let decoded;
       try {
-         decoded = jwt.verify(token, secret);
+         decoded = jwt.verify(token, serverConfig.SECRET);
       } catch (err) {
          ctx.body = {
             errCode: 6,

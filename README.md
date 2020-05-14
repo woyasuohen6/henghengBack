@@ -1,32 +1,47 @@
-![](https://github.com/woyasuohen6/henghengBack/blob/master/public/logo.png)
+![](https://github.com/woyasuohen6/henghengBack/blob/master/public/logo.png)  
 ## 哼哼养殖后端  
 ### 技术栈
-- koa
+- koa2
 - mongodb 
 - mongoose
-
+- 使用 jwt 鉴权
+- 使用七牛云开发者平台进行图片存储
 ### 启动方法
-- 请先安装 `node.js` 和 `mongodb`  
+- 安装 `node.js`   
+- 安装并配置 `mongodb`    
+- 注册并配置七牛云账号   
 - git clone git@github.com:woyasuohen6/henghengBack.git
-- npm install
-- 在根目录中创建配置文件 `config.js`
+- npm install  
+- 在根目录中创建配置文件 `config.js`，并输入以下配置信息  
 ```js
+serverConfig = {
+   // mongodb 数据库连接字符串
+   MONGODB_CONNECT_STR: '',
+   // jwt 密钥，可随机生成
+   SECRET: '',
+   // 服务端口
+   PORT: 8083,
+}
+
+qiniuConfig = {
+   // 七牛云密钥
+   ACCESS_KEY: '',
+   SECRET_KEY: '',
+   // 七牛云空间名称
+   BUCKET: '',
+   // 七牛云公开域名
+   PUBLIC_BUCKET_DOMAIN: ''
+}
+
 module.exports = {
-
-   // mongodb 的连接字符串
-   connectionStr: 'mongodb://username:password@host:port/database',
-
-   // 生成 token 的密钥 
-   secret: 'secret',
-
-   // 服务器端口号
-   port: xxxx
+   serverConfig,
+   qiniuConfig
 }
 ```
 - npm run start
 
 ### 接口信息返回格式
-所以的信息返回都符合一下格式
+所有信息返回都符合一下格式
 ```json
 {
    "errCode": 0,
@@ -49,3 +64,5 @@ module.exports = {
 - 'OK': 请求成功
 #### data
 表示响应的数据
+
+## 接口文档

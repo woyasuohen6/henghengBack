@@ -23,11 +23,11 @@ async function modify(ctx, next) {
       }
    })
 
-   const updatedMerchant = await Merchant.findOneAndUpdate({
+   await Merchant.findOneAndUpdate({
       _id: ctx.id
-   }, ctx.request.body);
+   }, ctx.request.body); 
    ctx.status = 200;
-   ctx.data = updatedMerchant;
+   ctx.data = await Merchant.findById(ctx.id);
    next();
 }
 

@@ -1,40 +1,30 @@
 const Router = require('koa-router');
-// const {
-//    auth,
-//    checkMerchant,
-//    getId
-// } = require('../controllers/utils/auth');
-
-// const {
-//    create,
-//    getCommodity,
-//    addImg,
-//    getDetail
-// } = require('../controllers/commodity')
 
 const router = new Router({
    prefix: '/commoditys'
 })
 
-// const upload = require('../controllers/utils/upload');
+const {
+   getCommodityDetail,
+   getTypedCommodityList,
+   getCommodityList
+} = require('../controllers/commodity');
 
 /**
- * 创建商品接口
+ * 获取商品详细信息接口
+ * 不需要登录权限
  */
-// router.post('/create', auth, getId, create);
+router.get('/getCommodityDetail', getCommodityDetail);
 
-// // 获取商品列表
-// router.get('/getCommodityList', getCommodity);
+/**
+ *  按类别获取商品列表接口
+ *  不需要登录权限
+ */
+router.get('/getTypedCommodityList', getTypedCommodityList);
 
-// /**
-//  * 商品上传图片接口
-//  */
-// router.post('/addImg/:CommodityId', auth, getId, upload, addImg);
-
-
-// /**
-//  * 获取详细信息
-//  */
-// router.get('/getDetail', getDetail);
-
+/**
+ *  获取商品列表接口
+ *  不需要登录权限
+ */
+router.get('/getCommodityList', getCommodityList);
 module.exports = router;
