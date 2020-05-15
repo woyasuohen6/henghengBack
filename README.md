@@ -40,6 +40,9 @@ module.exports = {
 ```
 - npm run start
 
+## 接口文档
+[postman](https://documenter.getpostman.com/view/11406584/SzmiXw5x?version=latest)  
+
 ### 接口信息返回格式
 所有信息返回都符合一下格式
 ```json
@@ -66,5 +69,3 @@ module.exports = {
 #### data
 表示响应的数据
 
-## 接口文档
-[postman](https://documenter.getpostman.com/view/11406584/SzmiXw5x?version=latest)

@@ -30,8 +30,6 @@ function uploadImg(fileName) {
    // 生成本地图片的具体路径
    const filePath = process.cwd() + '\\public\\imgs\\' + fileName;
 
-   // 上传图片的外链
-   let resultLink;
    /**
     * 文件上传
     */
